@@ -1,14 +1,19 @@
-import React from "react";
+import React from 'react';
 
-const todo = props => {
-  return (
-    <div
-      className={`todo${props.todo.purchased ? " done" : ""}`} //ternary operation
-      onClick={() => props.toggleItem(props.todo.id)}
-    >
-      <p>{props.todo.name}</p>
-    </div>
-  );
-};
+ function Todo(props) {
+    let completed = props.task.completed ? ' completed' : '';
+    return (
+        <div
+            className={`task ${completed}`}
+            key={props.task.id}
+            onClick={event => {
+                props.toggleTask(props.task.id);
+            }}
+        >
 
-export default todo;
+                    <p>{props.task.task}</p> 
+                </div>
+    );
+}
+
+ export default Todo 
